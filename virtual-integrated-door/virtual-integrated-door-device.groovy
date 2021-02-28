@@ -18,25 +18,25 @@ metadata {
 }
 
 def lock(value) {
-    def eventValue = (value != null) ? "$value" : "locking"
+    def eventValue = (value != null) ? value : "locking"
     log.info("lock value is $value")
     sendEvent(name: "lock", value: eventValue)
 }
 
 def unlock(value) {
-    def eventValue = (value != null) ? "$value" : "unlocking"
+    def eventValue = (value != null) ? value : "unlocking"
     log.info("unlock value is $value")
     sendEvent(name: "lock", value: eventValue)
 }
 
 def open(value) {
-    def eventValue = (value != null) ? "$value" : "opening"
+    def eventValue = (value != null) ? value : "opening"
     log.info("open value is $value")
     sendEvent(name: "door", value: "open")
 }
 
 def close(value) {
-    def eventValue = (value != null) ? "$value" : "closing"
+    def eventValue = (value != null) ? value : "closing"
     log.info("close value is $value")
     sendEvent(name: "door", value: "closed")
 }
