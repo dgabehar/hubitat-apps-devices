@@ -2,19 +2,19 @@
  *  Virtual integrated door device
  */
 metadata {
-    definition (name: "Virtual integrated door device", namespace: "vidd", author: "Doug Gabehart") {          
-        capability "Lock"        
+	definition (name: "Virtual integrated door device", namespace: "vidd", author: "Doug Gabehart") {          
+		capability "Lock"		
         capability "Door Control"
         capability "Garage Door Control"
-    }
-    tiles {                        
+	}
+    tiles {		        		
         standardTile("contact", "device.contact", width: 1, height: 1) {
-            state("closed", label:'${name}', icon:"st.contact.contact.closed", backgroundColor:"#00A0DC")
-            state("open", label:'${name}', icon:"st.contact.contact.open", backgroundColor:"#e86d13")
-        }        
-        main "toggle"
-        details(["toggle", "lock", "unlock", "contact"])
-    }    
+			state("closed", label:'${name}', icon:"st.contact.contact.closed", backgroundColor:"#00A0DC")
+			state("open", label:'${name}', icon:"st.contact.contact.open", backgroundColor:"#e86d13")
+		}        
+		main "toggle"
+		details(["toggle", "lock", "unlock", "contact"])
+	}    
 }
 
 def lock(value) {
