@@ -55,10 +55,12 @@ def virtualLockHandler(event) {
     else if ('locking' == event.value) {
         lock.lock()
     }
+    
 }
 
 def lockHandler(event) {
     virtualLockSetter(event.value)
+    runIn(5, 'verifyLockState', null)
 }
 private def virtualLockSetter(value) {
     log.info("Lock event with value $value")
@@ -79,4 +81,21 @@ private virtualContactSensorSetter(value) {
     else if ('closed' == value) {
         virtualContactSensor.close(value)
     }
+}
+private def verifyLockState() {
+    
+    if(virtualLock.currentLock != lock.currentLock){
+        log.info("Log states do not match: $lock.currentLock != $virtualLock.currentLock")
+        if(lock.currentLock == "locked") {
+            virtualLock.lock("locked")
+        }
+        else if(lock.currentLock == "unlocked") {
+            virtualLock.unlock("unlocked")
+        }
+    }
+    else {
+        log.info("Log states match: $lock.currentLock = $virtualLock.currentLock")
+    }
+        
+    
 }
