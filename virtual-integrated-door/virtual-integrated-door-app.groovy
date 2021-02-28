@@ -21,8 +21,8 @@ preferences {
         input 'doorSensor', 'capability.contactSensor', title: 'Contact sensor attached to the door', required: true
     }
     section('Choose the Virtual integrated door device ') {
-        input 'virtualLock', 'capability.lock', title: 'Virtual integrated door device', required: true
-        input 'virtualContactSensor', 'capability.contactSensor', title: 'Same Virtual integrated door device', required: true
+        input 'virtualLock', 'capability.lock', title: 'Virtual door device', required: true
+        input 'virtualContactSensor', 'capability.garageDoorControl', title: 'Same virtual door device you just selected above', required: true
     }
 }
 

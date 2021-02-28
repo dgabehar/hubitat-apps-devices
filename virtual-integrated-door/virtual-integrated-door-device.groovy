@@ -3,9 +3,7 @@
  */
 metadata {
     definition (name: "Virtual integrated door device", namespace: "vidd", author: "Doug Gabehart") {          
-        capability "Lock"
-        capability "Contact Sensor"
-        capability "Sensor"
+        capability "Lock"        
         capability "Door Control"
         capability "Garage Door Control"
     }
@@ -34,14 +32,12 @@ def unlock(value) {
 def open(value) {
     def eventValue = (value != null) ? "$value" : "opening"
     log.info("open value is $value")
-    sendEvent(name: "contact", value: "open")
     sendEvent(name: "door", value: "open")
 }
 
 def close(value) {
     def eventValue = (value != null) ? "$value" : "closing"
     log.info("close value is $value")
-    sendEvent(name: "contact", value: "closed")
     sendEvent(name: "door", value: "closed")
 }
 
