@@ -1,0 +1,2 @@
+# Virtual Integrated Door Device
+A simple app and virtual driver for integrating a contact sensor and a lock to simulate a single device that has both. Allows the Alexa integration to check the status of both the lock and the contact sensor via voice commands. This requires the Garage Door capability to work properly.
